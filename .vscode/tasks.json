@@ -1,0 +1,10 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "buildTest",
+			"command": "mkdir build; gcc -g -fprofile-arcs -ftest-coverage -pthread -lm /usr/lib/Stat/streams/api.o ${file} -o build/run"
+		}
+	]
+}

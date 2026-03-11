@@ -1,0 +1,16 @@
+/**
+ * Example usage of the echo stream plugin
+ */
+
+MAIN
+	// Open an echo stream
+	let handle = open echo
+
+	// Send a string value to the stream
+	"Hello World" -> handle
+
+	// response will contain "Hello World"
+	let response = <- handle
+
+	// Close the handle
+	close handle
