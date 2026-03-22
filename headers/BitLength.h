@@ -1,31 +1,28 @@
 /**
- * CompareNumbers
- * Compares numbers.
+ * BitLength
+ * Returns the position of the most significant bit in an integer
  *
- * You should pass in integer values or fraction values.
- * Any other value type will return -2
+ * This function looks at every bit in an integer starting from the most significant bit
+ * and returns the position of the first bit that's set to 1.
  *
- * This function handles infinity values as well as negative numbers
- * The return value will be as follows
+ * For example: If we pass 256889, then the return value will be 18 because 256889 is
+ * 111110101101111001 in binary - That's 18 bits
  *
- * 1 -  The first value is greater
- * 0 -  The two values are equal
- * -1 - The second value is greater
- * -2 - The two values are not comparable
+ * If the "integer" argument is zero, then the return value will also be zero
+ * since zero has no bits set.
  *
- * @param num1 The first number to compare
- * @param num2 The second number to compare
- * @return     The result of the comparison
+ * @param integer A pointer to the integer to get the bit length of
+ * @return        The bit index of the most significant bit
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	8/8/2023
+ * @created  	3/15/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef CompareNumbers_Header_DEF
-#define CompareNumbers_Header_DEF
+#ifndef BitLength_Header_DEF
+#define BitLength_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -36,7 +33,7 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeValueRef.h"
+#include "typeInteger.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
@@ -45,6 +42,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-int8_t CompareNumbers(typeValueRef* num1, typeValueRef* num2);
+uint64_t BitLength(typeInteger* integer);
 
 #endif

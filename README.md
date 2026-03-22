@@ -125,7 +125,7 @@ Creating `typeValueRef*` pointers **must** be done by calling the appropriate co
 typeValueRef* stringVal = StringRef(StringValue(String("Hello World")));
 
 // The String function supports standard C formatters
-stringVal = StringRef(StringValue(String("Name: %s, Age: %ld", "John", 30)))
+stringVal = StringRef(StringValue(String("Name: %s, Age: %ld", "John", 30)));
 ```
 
 **Creating binary values**

@@ -1,42 +1,33 @@
 /**
- * CompareNumbers
- * Compares numbers.
+ * Sha512
+ * Calculates and returns an SHA512 hash for a piece of data
+ * The return value will always be 512 bits long (or 64 bytes)
  *
- * You should pass in integer values or fraction values.
- * Any other value type will return -2
+ * IMPORTANT: The return value will be raw binary bytes. This means that
+ * it'll be unreadable as is. You'll need to hex encode the result if you
+ * want it to be in a readable format. See the HexEncode function
  *
- * This function handles infinity values as well as negative numbers
- * The return value will be as follows
- *
- * 1 -  The first value is greater
- * 0 -  The two values are equal
- * -1 - The second value is greater
- * -2 - The two values are not comparable
- *
- * @param num1 The first number to compare
- * @param num2 The second number to compare
- * @return     The result of the comparison
+ * @param data A pointer to the data to hash
+ * @return     A pointer to the hashed value
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	8/8/2023
+ * @created  	10/4/2024
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef CompareNumbers_Header_DEF
-#define CompareNumbers_Header_DEF
+#ifndef Sha512_Header_DEF
+#define Sha512_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
 //-------------------------------------------------------------------------------------
-// For int8_t int16_t int32_t int64_t intmax_t uint8_t uint16_t uint32_t uint64_t uintmax_t
-#include <stdint.h>
 
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeValueRef.h"
+#include "typeData.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
@@ -45,6 +36,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-int8_t CompareNumbers(typeValueRef* num1, typeValueRef* num2);
+typeData* Sha512(typeData* data);
 
 #endif
