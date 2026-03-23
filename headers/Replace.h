@@ -3,7 +3,7 @@
  * Performs a series of string replacements for a string
  *
  * This function is similar to the OffsetReplace function except that this function
- * starts replacements at the start of the string and has no optoin to start at an offset
+ * starts replacements at the start of the string and has no option to start at an offset
  *
  * In the replacement string, you can use "$1" - "$9" to insert the numbered capture group
  *

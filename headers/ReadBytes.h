@@ -5,7 +5,9 @@
  * If there are no more bytes available, it will return whatever value has already
  * been read.
  *
- * If ther was an error, then NULL is returned
+ * If ther was an error, then an empty typeData value is returned. There is no way
+ * to distinguish the difference between a failed read and a case where there are
+ * no more bytes to read (eg: End Of File). Either way, an empty value is returned
  *
  * @param fileDescriptor The file descriptor to read from
  * @param bytes          The number of bytes to read
