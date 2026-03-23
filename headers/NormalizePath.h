@@ -1,7 +1,7 @@
 /**
  * NormalizePath
  * Normalizes a file path by getting rid of dots, double slashes, and other irregularities
- * in a file path.
+ * in a file path. Any back slashes in the path are converted to forward slashes
  *
  * @param path The file system like path to normalize
  * @return     A normalized file path

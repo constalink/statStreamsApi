@@ -1,21 +1,25 @@
 /**
- * StatFilePath
- * Returns a typeDirEntry pointer for the file or folder at a given path.
- * This function reads information about a file or folder at a given path.
- * If the file or folder doesn't exist or can't be read, then NULL is returned.
+ * Chmod
+ * Changes permissions for a file or folder
  *
- * @param filePath Path to the file or folder to read stats for
- * @return         A pointer that contains information about the file / folder
+ * If the change is successful, then true is returned otherwise
+ * false is returned.
+ *
+ * @param path             A pointer to the path to change permissions for
+ * @param ownerPermission  The permission for the owner of the file/folder
+ * @param groupPermission  The permission for the group of the file/folder
+ * @param othersPermission The permission for all others
+ * @return                 true if the operation was successful or false otherwise
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	12/13/2025
+ * @created  	3/22/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef StatFilePath_Header_DEF
-#define StatFilePath_Header_DEF
+#ifndef Chmod_Header_DEF
+#define Chmod_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -24,16 +28,22 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
+#include "typeBool.h"
 #include "typeData.h"
-#include "typeDirEntry.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
 //-------------------------------------------------------------------------------------
+#include "enFilePermission.h"
 
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeDirEntry* StatFilePath(typeData* filePath);
+typeBool Chmod(
+	typeData* path,
+	enFilePermission ownerPermission,
+	enFilePermission groupPermission,
+	enFilePermission othersPermission
+);
 
 #endif
