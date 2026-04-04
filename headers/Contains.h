@@ -5,7 +5,8 @@
  * This function expects a needle argument and a hayStack argument that
  * are comparable that's to say that it's possible for needle to be inside haystack
  *
- * Here is a table of supported value type combinations.
+ * Here is a table of supported value type combinations. If supported values aren't
+ * passed in, then false is returned
  *
  * ----------------------------------------------------------------------------------------------
  * | hayStack type | needle type | notes                                                        |
@@ -21,13 +22,12 @@
  * ----------------------------------------------------------------------------------------------
  *
  * The return value will be one of the following:
- * 0  - If it's determined that needle is not contained within hayStack
- * 1  - If it's determined that needle is contained within hayStack
- * -1 - If a determination could not be made or if unsupported value types were passed in
+ * false - If it's determined that needle is not contained within hayStack
+ * true  - If it's determined that needle is contained within hayStack
  *
  * @param needle   A pointer to a value to search for
  * @param hayStack A pointer to a value to search within
- * @return         0, 1, or -1 depending on the result of the search
+ * @return         true or false depending on the result of the search
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
@@ -42,12 +42,11 @@
 //-------------------------------------------------------------------------------------
 // Included libraries
 //-------------------------------------------------------------------------------------
-// For int8_t int16_t int32_t int64_t intmax_t uint8_t uint16_t uint32_t uint64_t uintmax_t
-#include <stdint.h>
 
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
+#include "typeBool.h"
 #include "typeValueRef.h"
 
 //-------------------------------------------------------------------------------------
@@ -57,6 +56,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-int8_t Contains(typeValueRef* needle, typeValueRef* hayStack);
+typeBool Contains(typeValueRef* needle, typeValueRef* hayStack);
 
 #endif
