@@ -1,24 +1,23 @@
 /**
- * StringRangeCharLength
- * Returns the utf8 character length of a range in a string. This function
- * starts counting characters at a given zero based byte start index taking into account
- * multi-byte characters counting them as a single character, and ends counting
- * when it hits the zero based byte end index
+ * MatchRegExpIndex
+ * Matches a typeData value against a regular expression and returns the
+ * first match index it finds or NULL if a match isn't found
  *
- * @param string   A pointer to a typeData value to get the character length of
- * @param startPos The zero based byte index to start from
- * @param endPos   The zero based byte index to end at. The character at the end index is not counted
- * @return         The character length of the range within the string
+ * @param regExp   A pointer to a regular expression to match against
+ * @param string   A pointer to a typeData value to perform the match on
+ * @param startPos The position to consider the "start of string" for anchor purposes
+ * @param fromPos  The position to start searching from
+ * @return         A pointer to the match index if found or NULL if not found
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	9/9/2025
+ * @created  	5/3/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef StringRangeCharLength_Header_DEF
-#define StringRangeCharLength_Header_DEF
+#ifndef MatchRegExpIndex_Header_DEF
+#define MatchRegExpIndex_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -30,6 +29,8 @@
 // Included types
 //-------------------------------------------------------------------------------------
 #include "typeData.h"
+#include "typeRegExp.h"
+#include "typeMatchIndex.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
@@ -38,6 +39,12 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-intmax_t StringRangeCharLength(typeData* string, intmax_t startPos, intmax_t endPos);
+typeMatchIndex* MatchRegExpIndex(
+	typeRegExp* regExp,
+	typeData* string,
+	// Start anchors only match from this position without multiline set
+	intmax_t startPos,
+	intmax_t fromPos
+);
 
 #endif

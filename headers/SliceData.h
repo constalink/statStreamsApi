@@ -11,7 +11,8 @@
  * @param data     A pointer to a typeData value to take the slice from
  * @param startPos The zero based index to start the slice at. Negative indexes are supported
  * @param endPos   The zero based index to end the slice at. Negative indexes are supported
- *                 The return value does not include the byte at the endPos index
+ *                 The return value does not include the byte at the endPos index. Pass zero
+ *                 to indicate no end which will slice from startPos to the end of data
  * @return         A pointer to a new typeData value that contains the bytes of the slice
  *
  * @license  	MIT

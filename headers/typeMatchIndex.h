@@ -1,16 +1,16 @@
 /**
- * typeMatchGroup
- * A regular expression match group
+ * typeMatchIndex
+ * A regular expression match index result
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	10/29/2023
+ * @created  	5/3/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef typeMatchGroup_DEF
-#define typeMatchGroup_DEF
+#ifndef typeMatchIndex_DEF
+#define typeMatchIndex_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -22,7 +22,7 @@
 // Included types
 //-------------------------------------------------------------------------------------
 #include "typeValue.h"
-#include "typeData.h"
+#include "typeMatchIndexGroupList.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
@@ -31,13 +31,13 @@
 //-------------------------------------------------------------------------------------
 // Struct definition
 //-------------------------------------------------------------------------------------
-typedef struct typeMatchGroup {
+typedef struct typeMatchIndex {
 	VALUEMEMBERS;
 
-	typeData* match;
+	typeMatchIndexGroupList* groups;
 	intmax_t startIndex;
 	intmax_t endIndex;
 
-} typeMatchGroup;
+} typeMatchIndex;
 
 #endif

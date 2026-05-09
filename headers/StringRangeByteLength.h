@@ -1,24 +1,27 @@
 /**
- * StringRangeCharLength
- * Returns the utf8 character length of a range in a string. This function
- * starts counting characters at a given zero based byte start index taking into account
- * multi-byte characters counting them as a single character, and ends counting
- * when it hits the zero based byte end index
+ * StringRangeByteLength
+ * Returns the raw byte length of a utf8 character range in a string. This function
+ * starts counting bytes at a given zero based utf8 character start index taking into
+ * account multi-byte characters counting them as multiple bytes, and ends counting
+ * when it hits the zero based utf8 character end index
  *
- * @param string   A pointer to a typeData value to get the character length of
- * @param startPos The zero based byte index to start from
- * @param endPos   The zero based byte index to end at. The character at the end index is not counted
- * @return         The character length of the range within the string
+ * @param string     A pointer to a typeData value that contains the range to count
+ * @param charLength The utf8 character length of the string. You can get this by
+ *                   calling the StringCharLength function on the string
+ * @param startChar  The zero based utf8 character index to start from.
+ * @param endChar    The zero based utf8 character index to end at. The character at
+ *                   the end index is not counted
+ * @return           The byte length of the range within the string
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	9/9/2025
+ * @created  	5/4/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef StringRangeCharLength_Header_DEF
-#define StringRangeCharLength_Header_DEF
+#ifndef StringRangeByteLength_Header_DEF
+#define StringRangeByteLength_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -38,6 +41,11 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-intmax_t StringRangeCharLength(typeData* string, intmax_t startPos, intmax_t endPos);
+intmax_t StringRangeByteLength(
+	typeData* string,
+	intmax_t charLength,
+	intmax_t startChar,
+	intmax_t endChar
+);
 
 #endif

@@ -10,7 +10,7 @@
  *                   then it is calculated as if it is equal to this value
  * @param endIndex   The end index. This can be negative. If it ends up being
  *                   calculated to be less than startIndex, then startIndex is returned
- * @return           The calculated end index
+ * @return           The calculated end index. If zero is passed, then length is returned
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>

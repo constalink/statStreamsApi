@@ -1,27 +1,30 @@
 /**
- * typeMatchGroup
- * A regular expression match group
+ * IsUtf8String
+ * Tells if a typeData value is a valid printable UTF8 string
+ * If a data value contains non printable characters or binary data that isn't
+ * valid UTF8, then false will be returned, otherwise true will be returned
+ *
+ * @param data A pointer to a typeData value to check
+ * @return     true if the value contains only printable UTF8 characters or false otherwise
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	10/29/2023
+ * @created  	5/4/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef typeMatchGroup_DEF
-#define typeMatchGroup_DEF
+#ifndef IsUtf8String_Header_DEF
+#define IsUtf8String_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
 //-------------------------------------------------------------------------------------
-// For int8_t int16_t int32_t int64_t intmax_t uint8_t uint16_t uint32_t uint64_t uintmax_t
-#include <stdint.h>
 
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeValue.h"
+#include "typeBool.h"
 #include "typeData.h"
 
 //-------------------------------------------------------------------------------------
@@ -29,15 +32,8 @@
 //-------------------------------------------------------------------------------------
 
 //-------------------------------------------------------------------------------------
-// Struct definition
+// Header definition
 //-------------------------------------------------------------------------------------
-typedef struct typeMatchGroup {
-	VALUEMEMBERS;
-
-	typeData* match;
-	intmax_t startIndex;
-	intmax_t endIndex;
-
-} typeMatchGroup;
+typeBool IsUtf8String(typeData* data);
 
 #endif
