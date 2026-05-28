@@ -1,31 +1,27 @@
 /**
- * CharLength
- * Returns the character length at a given string position for a typeData value.
- * This takes into account multi-byte UTF8 characters so that if the character
- * at the given index takes up multiple bytes, then the number of bytes that
- * the character takes up is returned.
+ * EncodeHtml
+ * Takes plain text and returns a value that is encoded such that it can
+ * be embedded into an HTML tag attribute or within an HTML tag as a literal
+ * text value. HTML characters such as &, <, >, and quotes are replaced by their
+ * HTML entity equivalent character sequences. Also, any non printable characters
+ * are removed from the result.
  *
- * @param string The typeData value to get the character length of
- * @param index  The zero based byte index to get the character length of.
- *               Negative indexes are supported to indicate a number of bytes from the end.
- * @return       The number of bytes that the character at the given index takes up
- *               This will always be 1, 2, 3, or 4
+ * @param text The text to encode
+ * @return     The encoded text. Suitable for embedding into an HTML attribute or tag
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	10/28/2023
+ * @created  	5/26/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef CharLength_Header_DEF
-#define CharLength_Header_DEF
+#ifndef EncodeHtml_Header_DEF
+#define EncodeHtml_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
 //-------------------------------------------------------------------------------------
-// For int8_t int16_t int32_t int64_t intmax_t uint8_t uint16_t uint32_t uint64_t uintmax_t
-#include <stdint.h>
 
 //-------------------------------------------------------------------------------------
 // Included types
@@ -39,6 +35,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-int8_t CharLength(typeData* string, intmax_t index);
+typeData* EncodeHtml(typeData* text);
 
 #endif

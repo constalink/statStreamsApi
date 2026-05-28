@@ -5,7 +5,7 @@
  * This function creates a new integer value with a length such that
  * all the bytes in the binary value fit into 64 bit words.
  * It then copies all the bytes directly into the 64 bit words in the integer value
- * This function doe not do string to integer conversion, but rather,
+ * This function does not do string to integer conversion, but rather,
  * it simply interprets a binary value as an integer.
  *
  * The return value will be a typeValueRef value that has the typeValueRef->type

@@ -1,25 +1,23 @@
 /**
- * CharLength
- * Returns the character length at a given string position for a typeData value.
- * This takes into account multi-byte UTF8 characters so that if the character
- * at the given index takes up multiple bytes, then the number of bytes that
- * the character takes up is returned.
+ * EncodeHtmlLength
+ * Takes a plain text string and returns the byte length necessary for encoding
+ * it as HTML such that it can be embedded into an HTML tag attribute or within
+ * an HTML tag. The length is the same as the return value of the EncodeHtml
+ * function. In fact, the EncodeHtml function calls this function in order to
+ * determine the length before a memory allocation is performed.
  *
- * @param string The typeData value to get the character length of
- * @param index  The zero based byte index to get the character length of.
- *               Negative indexes are supported to indicate a number of bytes from the end.
- * @return       The number of bytes that the character at the given index takes up
- *               This will always be 1, 2, 3, or 4
+ * @param text The text to encode
+ * @return     The byte length necessary to encode the text
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	10/28/2023
+ * @created  	5/27/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef CharLength_Header_DEF
-#define CharLength_Header_DEF
+#ifndef EncodeHtmlLength_Header_DEF
+#define EncodeHtmlLength_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -39,6 +37,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-int8_t CharLength(typeData* string, intmax_t index);
+intmax_t EncodeHtmlLength(typeData* text);
 
 #endif
