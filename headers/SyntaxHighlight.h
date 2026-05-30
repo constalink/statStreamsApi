@@ -13,102 +13,33 @@
  * stylesheet to determine how each token type is colored. This allows different
  * themes to style the same syntax code differently.
  *
- * Here are the list of css classes that can be targeted by a css theme:
+ * This function expects you to provide a list of css classes where each class in
+ * the list is either NULL in which case no syntax highlighting is performed for
+ * that token, or it's a string in which case, the entire token is wrapped in a
+ * span tag that includes the corresponding token class. Each AST token type is simply
+ * an integer and the number of tokens is extensive (several hundred of them)
+ * so you can simply pass in a large list of strings for syntax highlighting. Also,
+ * the integer for an AST token type is subject to change, so you'll need to perform
+ * tests to make sure that syntax highlighting still works as expected whenever
+ * Stat is updated.
  *
- * General Elements
- * - Section Names: .section-name
- *    - Each section name has a class that is a dash prepended to the lower case version of the section name
- *    - For example: To target the "MAIN" section name: .section-name.-main
- * - Comments: .comment
- * - Key Words: .key-word
- *    - Each key word has a class that is a dash prepended to the key word
- *    - For example: To target the "let" key word: .key-word.-let
- * - Value Escapes: .escape
- *    - Hex Escape: .escape.-hex
- *    - Unicode Escape: .escape.-unicode
- *    - Binary Escape: .escape.-binary
- *    - String Escape: .escape.-string
- *    - Value Escape: .escape.-value
- * - Value Operators: .operator
- *    - Each operator has an additional class that is the name of the operator prepended by a dash
- *    - For example: To target the "equals" operator: .operator.-equals
- * - Literals: .literal
- *    - Booleans: .literal.-bool
- *    - Empty: .literal.-empty
- *    - Float: .literal.-float
- *    - Fraction: .literal.-fraction
- *    - Infinity: .literal.-infinity
- *    - Integer: .literal.-int
- *    - Range: .literal.-range
- *    - Numbers: .literal.-number
- *    - Binary: .literal.-binary
- *    - List: .literal.-list
- *    - Regular Expression: .literal.-reg-exp
- *    - String: .literal.-string
- *    - Struct: .literal.-struct
- *       - Struct Element: .struct-element
- * - Names: .name
- *    - Argument: .name.-argument
- *    - Stream: .name.-stream
- *    - Generic: .name.-generic
- *    - Property: .name.-property
- *    - Variable: .name.-variable
- * - Type Hints: .type-hint
- *    - Alias: .type-hint.-alias
- *    - Any: .type-hint.-any
- *    - Binary: .type-hint.-binary
- *    - Bool: .type-hint.-bool
- *    - Dictionary: .type-hint.-dictionary
- *    - Empty: .type-hint.-empty
- *    - Fraction: .type-hint.-fraction
- *    - Generic: .type-hint.-generic
- *    - Int: .type-hint.-int
- *    - List: .type-hint.-list
- *    - Range: .type-hint.-range
- *    - RegExp: .type-hint.-reg-exp
- *    - Stream: .type-hint.-stream
- *    - String: .type-hint.-string
- *    - Struct: .type-hint.-struct
- *    - Return: .type-hint.-return
- *    - Arg: .type-hint.-arg
+ * Example:
+ * Let's say we want to target comments and the "await" key word. These tokens are
+ * currently set to 1 (for comment) and 7 (for await). This list will target these tokens
  *
- * Regular Expression Elements
- * - Character Set Range: .char-set-range
- * - Special Characters: .reg-exp-special
- *    - Dot: .reg-exp-special.-dot
- *    - Character Set: .reg-exp-special.-char-set
- *    - Group: .reg-exp-special.-group
- * - Modifiers: .reg-exp-modifier
- * - Quantifiers: .reg-exp-quant
- * - Escapes: .escape
- *    - Regular Expression Escapes: .escape.-reg-exp
- *    - Back References: .escape.-back-ref
- *    - Character Set Escape: .escape.-char-set
- *    - Digits: .escape.-digits
- *    - Non Digits: .escape.-non-digits
- *    - Spaces: .escape.-spaces
- *    - Non Spaces: .escape.-non-spaces
- *    - Word Boundary: .escape.-word-boundary
- *    - Non Word Boundary: .escape.-non-word-boundary
- *    - Words: .escape.-words
- *    - Non Words: .escape.-non-words
+ * // Create a data list that has enough slots
+ * typeDataList* astSyntaxClasses = DataList(8, 0);
+ * // Set the class for the "1" index position in the list
+ * SetIndexInPlace(astSyntaxClasses, String("comment"), 1);
+ * // Set the class for the "7" index position in the list
+ * SetIndexInPlace(astSyntaxClasses, String("await-key-word"), 7);
  *
- * Other Elements
- * - Accessors: .accessor
- * - Accessor Expressions: .accessor-expression
- * - Argument Lists: .argument-list
- * - Chained Function Calls: .chained-function-call
- * - Close Expressions: .close-expression
- * - Function Calls: .function-call
- * - Off Expressions: .off-expression
- * - Open Expressions: .open-expression
- * - Property Calls: .property-call
- * - Tag Function Calls: .tag-function-call
- * - Import paths: .import-path
+ * // We end up with this list
+ * // [NULL, "comment", NULL, NULL, NULL, NULL, NULL, "await-key-word"]
  *
- *
- * @param codeSnippet    The code to highlight
- * @param prefixClasses  A string to use to prefix each token-class
+ * @param codeSnippet      The code to highlight
+ * @param astSyntaxClasses A pointer to a typeData* list that contains a css
+ *                         class for each AST token type you want to target
  * @return               The highlighted snippet that's suitable to be placed into a <pre> tag
  *
  * @license  	MIT
@@ -129,6 +60,7 @@
 // Included types
 //-------------------------------------------------------------------------------------
 #include "typeData.h"
+#include "typeDataList.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
@@ -137,6 +69,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeData* SyntaxHighlight(typeData* codeSnippet, typeData* prefixClasses);
+typeData* SyntaxHighlight(typeData* codeSnippet, typeDataList* astSyntaxClasses);
 
 #endif
