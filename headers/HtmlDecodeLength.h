@@ -1,23 +1,28 @@
 /**
- * EncodeHtmlLength
- * Takes a plain text string and returns the byte length necessary for encoding
- * it as HTML such that it can be embedded into an HTML tag attribute or within
- * an HTML tag. The length is the same as the return value of the EncodeHtml
- * function. In fact, the EncodeHtml function calls this function in order to
- * determine the length before a memory allocation is performed.
+ * HtmlDecodeLength
+ * Takes an HTML encoded string and returns the byte length necessary for decoding it
+ * into plain text. The length is the same as the return value of the HtmlDecode
+ * function. In fact, the HtmlDecode function calls this function in order to determine
+ * the length before memory allocation is performed.
  *
- * @param text The text to encode
- * @return     The byte length necessary to encode the text
+ * IMPORTANT: This is not a comprehensive conversion. It'll only handle a limited set
+ * of possible HTML entities. It's only meant to reverse the HtmlEncode function and
+ * still doesn't do it exactly because it can't put back unprintable characters that
+ * were discarded during the HtmlEncode process. It won't handle the thousands of
+ * modern HTML5 entities such as &copy; or &reg;
+ *
+ * @param html The HTML encoded text to convert to plain text
+ * @return     The byte length necessary to decode the text
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	5/27/2026
+ * @created  	6/1/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef EncodeHtmlLength_Header_DEF
-#define EncodeHtmlLength_Header_DEF
+#ifndef HtmlDecodeLength_Header_DEF
+#define HtmlDecodeLength_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -37,6 +42,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-intmax_t EncodeHtmlLength(typeData* text);
+intmax_t HtmlDecodeLength(typeData* html);
 
 #endif
