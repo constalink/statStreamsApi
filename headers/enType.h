@@ -17,6 +17,7 @@
 //-------------------------------------------------------------------------------------
 typedef enum enType {
 
+	enTypeEmpty,
 	enTypeString,
 	enTypeBinary,
 	enTypeInt,
@@ -29,15 +30,14 @@ typedef enum enType {
 	enTypeList,
 	enTypeDict,
 	enTypeStruct,
-	enTypeEmpty,
+	enTypeFunction,
+	enTypeStream,
+	enTypeGeneric,
 	enTypeUnknown,
 	enTypeUndefined,
 	enTypeAny,
-	enTypeAlias,
 	enTypeUnion,
-	enTypeGeneric,
-	enTypeFunction,
-	enTypeStream
+	enTypeAlias
 
 } enType;
 

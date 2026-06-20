@@ -21,6 +21,7 @@
 // Included types
 //-------------------------------------------------------------------------------------
 #include "../headers/typeBool.h"
+#include "../headers/typeData.h"
 #include "../headers/typeValueRef.h"
 #include "../headers/typeStreamValue.h"
 #include "../headers/typeStringValue.h"
@@ -31,6 +32,7 @@
 // Included enums
 //-------------------------------------------------------------------------------------
 #include "../headers/enValueRefType.h"
+#include "../headers/enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
 // Included functions
@@ -329,6 +331,9 @@ static typeStreamValue* CreateStream(
 //   contains pointers to functions that are called to initialize, create, and cleanup the stream.
 typeStreamDef* EchoStream() {
 
+	// Here, we simply create a streamId value that we can use to pass to the StreamDef and StreamType functions
+	typeData* streamId = String("echo");
+
 	// The StreamDef function creates a typeStreamDef object and returns a pointer to it.
 	// Here, we are simply returning the result of that function call.
 	return StreamDef(
@@ -349,23 +354,28 @@ typeStreamDef* EchoStream() {
 
 		// This is the stream id. It MUST match the name of this file except with a lower case first letter
 		// and without the "Stream.c" at the end. If it doesn't match, then the plugin won't be loaded
-		String("echo"),
+		streamId,
 
 		// This is the stream data type
 		StreamType(
+
+			// This is the stream name. It MUST match the stream definition ID. We can simply pass in the
+			// exact same pointer value
+			streamId,
 
 			// This is the type of parameter that the open expression takes if any.
 			// In our case, we don't need to pass a value to the open expression, so we pass NULL here.
 			NULL,
 
 			// This is the stream output type. This stream outputs strings
-			StringType(false),
+			StringType(enTypeModifierNone),
 
 			// This is the stream input type. This stream can receive any data type as input
-			AnyType(true),
+			AnyType(enTypeModifierOptional),
 
-			// This must be false. This determines if the stream type is optional... it must not be optional
-			false
+			// This must be enTypeModifierNone. This determines if the stream type is optional or forced...
+			// it must not be optional so enTypeModifierNone (no modifier) is the way to specify that
+			enTypeModifierNone
 		),
 
 		// The documentation for the stream if any. It should be a markdown string

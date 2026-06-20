@@ -1,11 +1,16 @@
 /**
- * FlattenTypes
- * Returns a flattened list of typeType values from a given list of types.
- * This function extracts out all union types and extracts out all optionals
- * to the empty type so that the return value contains a list of definite types
+ * FlattenedTypes
+ * Returns a flattened list of typeType values from a given typeType value.
+ * This function extracts out all union types and alias types and extracts out
+ * all optionals to the empty type so that the return value contains a list of
+ * definite types. That is a list of types that each only refer to a single data
+ * type.
  *
- * @param types A pointer to a list of typeType values
- * @return      A list of flattened, definite data types
+ * string? becomes [string, empty]
+ * (string | int)? becomes [string, int, empty]
+ *
+ * @param type A pointer to typeType value to flatten
+ * @return     A list of flattened, definite data types
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
@@ -14,8 +19,8 @@
  * @visibility	Public
  */
 
-#ifndef FlattenTypes_Header_DEF
-#define FlattenTypes_Header_DEF
+#ifndef FlattenedTypes_Header_DEF
+#define FlattenedTypes_Header_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -24,6 +29,7 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
+#include "typeType.h"
 #include "typeTypeList.h"
 
 //-------------------------------------------------------------------------------------
@@ -33,6 +39,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeTypeList* FlattenedTypes(typeTypeList* types);
+typeTypeList* FlattenedTypes(typeType* type);
 
 #endif

@@ -1,16 +1,16 @@
 /**
- * typePropTypeDict
- * Dictionary of typePropType structs
+ * typeDocumentedType
+ * A documented data type
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	3/15/2025
+ * @created  	1/19/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef typePropTypeDict_DEF
-#define typePropTypeDict_DEF
+#ifndef typeDocumentedType_DEF
+#define typeDocumentedType_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -19,8 +19,9 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeDict.h"
-#include "typePropType.h"
+#include "typeValue.h"
+#include "typeData.h"
+#include "typeType.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
@@ -29,12 +30,11 @@
 //-------------------------------------------------------------------------------------
 // Struct definition
 //-------------------------------------------------------------------------------------
-typedef struct typePropTypeDict {
-	DICTMEMBERS;
+typedef struct typeDocumentedType {
+	VALUEMEMBERS;
+	struct typeType* type;
+	typeData* doc;
 
-	// The type of items in the dictionary
-	struct typePropType** values;
-
-} typePropTypeDict;
+} typeDocumentedType;
 
 #endif

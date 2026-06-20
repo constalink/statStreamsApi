@@ -1,11 +1,11 @@
 /**
  * IntType
- * Returns the "int" or the "int?" typeType value. The return value is a global
+ * Returns the "int", "int?", or "int!" typeType value. The return value is a global
  * value and is tracked on the global memory stack. Also, every time you call
- * this function, the same pointer will be returned as it's a singleton
+ * this function, the same pointer will be returned as these types are singletons
  *
- * @param optional Whether or not the type is optional or can hold empty values
- * @return         A pointer to the "int" or "int?" typeType value
+ * @param modifier The type modifier - none, optional, or forced
+ * @return         A pointer to the "int", "int?", or "int!" typeType value
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
@@ -24,16 +24,16 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeBool.h"
 #include "typeType.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
 //-------------------------------------------------------------------------------------
+#include "enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeType* IntType(typeBool optional);
+typeType* IntType(enTypeModifier modifier);
 
 #endif

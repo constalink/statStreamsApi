@@ -1,21 +1,16 @@
 /**
- * FractionType
- * Returns the "fraction", "fraction?", or "fraction!" typeType value. The return value is a global
- * value and is tracked on the global memory stack. Also, every time you call
- * this function, the same pointer will be returned as these types are singletons
- *
- * @param modifier The type modifier - none, optional, or forced
- * @return         A pointer to the "fraction", "fraction?", or "fraction!" typeType value
+ * typeDocumentedTypeDict
+ * Dictionary of typeDocumentedType structs
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	9/8/2022
+ * @created  	1/19/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef FractionType_Header_DEF
-#define FractionType_Header_DEF
+#ifndef typeDocumentedTypeDict_DEF
+#define typeDocumentedTypeDict_DEF
 
 //-------------------------------------------------------------------------------------
 // Included libraries
@@ -24,16 +19,22 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeType.h"
+#include "typeDict.h"
+#include "typeDocumentedType.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
 //-------------------------------------------------------------------------------------
-#include "enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
-// Header definition
+// Struct definition
 //-------------------------------------------------------------------------------------
-typeType* FractionType(enTypeModifier modifier);
+typedef struct typeDocumentedTypeDict {
+	DICTMEMBERS;
+
+	// The type of items in the dictionary
+	struct typeDocumentedType** values;
+
+} typeDocumentedTypeDict;
 
 #endif

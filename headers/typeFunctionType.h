@@ -25,7 +25,7 @@
 #include "typeType.h"
 #include "typeTypeDict.h"
 #include "typeArgTypeDict.h"
-#include "typePropTypeDict.h"
+#include "typeDocumentedTypeDict.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
@@ -40,7 +40,7 @@ typedef struct typeFunctionType {
 	// Dictionary of generics <T: restrictedType>
 	struct typeTypeDict* generics;
 	struct typeArgTypeDict* argTypes;
-	struct typePropTypeDict* propertyTypes;
+	struct typeDocumentedTypeDict* propertyTypes;
 	struct typeType* returnType;
 	struct typeData* filePath;
 	struct typeData* doc;

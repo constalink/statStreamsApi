@@ -13,7 +13,7 @@
  * | binary     | int (1 based) | A single byte at the given index as a binary                       |
  * | binary     | range         | A sub binary of bytes that are within the indexed range            |
  * | list       | int (1 based) | The value at the specified index                                   |
- * | list       | range         | A sub list of elements that are withint the indexed range          |
+ * | list       | range         | A sub list of elements that are within the indexed range          |
  * ---------------------------------------------------------------------------------------------------
  *
  * @param value  A reference to a enum, struct, string, binary, or list value.

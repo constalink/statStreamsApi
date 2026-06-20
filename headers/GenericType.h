@@ -7,7 +7,7 @@
  *
  * @param name             A pointer to the generic name. This should be a single upper case letter like "T"
  * @param restrictedToType A pointer to the type that the generic is restricted to or NULL if not restricted
- * @param optional         Whether or not the type is optional or can hold empty values
+ * @param modifier         The type modifier - none, optional, or forced
  * @return                 A pointer to the new generic type
  *
  * @license  	MIT
@@ -27,13 +27,13 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeBool.h"
 #include "typeData.h"
 #include "typeType.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
 //-------------------------------------------------------------------------------------
+#include "enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
 // Header definition
@@ -41,7 +41,7 @@
 typeType* GenericType(
 	typeData* name,
 	typeType* restrictedToType,
-	typeBool optional
+	enTypeModifier modifier
 );
 
 #endif

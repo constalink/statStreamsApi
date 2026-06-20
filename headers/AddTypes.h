@@ -18,7 +18,6 @@
  * and if the list contains a single type, then that type is returned
  *
  * @param types   A pointer to a list of typeType values to add together
- * @param unalias Whether or not to unalias all types before adding them together
  * @return        A single data type that encompasses all types passed in
  *
  * @license  	MIT
@@ -38,7 +37,6 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeBool.h"
 #include "typeType.h"
 #include "typeTypeList.h"
 
@@ -49,6 +47,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeType* AddTypes(typeTypeList* types, typeBool unalias);
+typeType* AddTypes(typeTypeList* types);
 
 #endif

@@ -16,7 +16,7 @@
  * and tracks it on the current memory stack
  *
  * @param unionTypes A pointer to a list of types in the union
- * @param optional   Whether or not the type is optional or can hold empty values
+ * @param modifier   The type modifier - none, optional, or forced
  * @return           A pointer to the new union type
  *
  * @license  	MIT
@@ -36,17 +36,17 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeBool.h"
 #include "typeType.h"
 #include "typeTypeList.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
 //-------------------------------------------------------------------------------------
+#include "enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeType* UnionType(typeTypeList* unionTypes, typeBool optional);
+typeType* UnionType(typeTypeList* unionTypes, enTypeModifier modifier);
 
 #endif

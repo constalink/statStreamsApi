@@ -9,7 +9,7 @@
  * @param paramType  A pointer to the open parameter type that the stream expects when opening the stream
  * @param outputType A pointer to the output data type that the stream outputs when being read from
  * @param inputType  A pointer to the input data type that the stream expects when being written to
- * @param optional   Whether or not the type is optional or can hold empty values
+ * @param modifier   The type modifier - none, optional, or forced
  * @return           A pointer to the new stream type
  *
  * @license  	MIT
@@ -29,13 +29,13 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeBool.h"
 #include "typeData.h"
 #include "typeType.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
 //-------------------------------------------------------------------------------------
+#include "enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
 // Header definition
@@ -45,7 +45,7 @@ typeType* StreamType(
 	typeType* paramType,
 	typeType* outputType,
 	typeType* inputType,
-	typeBool optional
+	enTypeModifier modifier
 );
 
 #endif

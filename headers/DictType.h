@@ -7,7 +7,7 @@
  *
  * @param subType  A pointer to the dictionary's sub type - the type of values it can hold
  *                 If this is NULL, then the undefined type is returned
- * @param optional Whether or not the type is optional or can hold empty values
+ * @param modifier The type modifier - none, optional, or forced
  * @return         A pointer to the new dictionary type
  *
  * @license  	MIT
@@ -27,16 +27,16 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeBool.h"
 #include "typeType.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
 //-------------------------------------------------------------------------------------
+#include "enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeType* DictType(typeType* subType, typeBool optional);
+typeType* DictType(typeType* subType, enTypeModifier modifier);
 
 #endif

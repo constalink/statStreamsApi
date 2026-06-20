@@ -3,6 +3,7 @@
  * Tells if a type is definite. A definite type is one that holds a single data type
  * Here are some definite types:
  *
+ * empty
  * string
  * int
  * regExp
@@ -23,8 +24,6 @@
  *
  * Special types like these are not definite
  *
- * empty - This isn't a definite type because it doesn't have
- * 			a single data type. It has zero data types
  * any
  * undefined
  * unknown

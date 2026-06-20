@@ -1,7 +1,7 @@
 /**
  * GenericRestrictedToType
  * Converts a generic type to a non-generic type. If the generic is restricted, that type is returned
- * otherwise any / any? is returned depending the optional modifier of the generic type
+ * otherwise any? is returned
  *
  * If the type isn't generic, then the original type is returned
  * If keepNonRestricted is true and the generic type isn't restricted, then the original
@@ -10,8 +10,8 @@
  * @param genericType       A pointer to a generic type to convert
  * @param keepNonRestricted Whether or not to return a generic type that isn't restricted or not
  *                          It this is true, then the original type is returned if it isn't restricted
- *                          If this is false, then the any or any? type is returned if it isn't restricted
- * @return                  The generic's restricted type or any/any? depending on the arguments passed in
+ *                          If this is false, then the any? type is returned if it isn't restricted
+ * @return                  The generic's restricted type, any? or the original type depending on the arguments passed in
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>

@@ -3,7 +3,7 @@
  * Converts a struct type to an equivalent dictionary type
  *
  * What this function does is take all the value types in the struct
- * type and combines them all together into a combined type (possibly union type)
+ * type and combines them all together into a combined type (most likely a union type)
  * and uses that as the sub type for the dictionary type that's returned.
  *
  * For example:

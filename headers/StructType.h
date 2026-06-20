@@ -6,7 +6,7 @@
  * and tracks it on the current memory stack
  *
  * @param structTypes A dictionary of struct members which define the keys, optionality, and type of struct members
- * @param optional    Whether or not the type is optional or can hold empty values
+ * @param modifier    The type modifier - none, optional, or forced
  * @return            A pointer to the new struct type
  *
  * @license  	MIT
@@ -26,17 +26,17 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeBool.h"
 #include "typeType.h"
 #include "typeStructTypeMemberDict.h"
 
 //-------------------------------------------------------------------------------------
 // Included enums
 //-------------------------------------------------------------------------------------
+#include "enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeType* StructType(typeStructTypeMemberDict* structTypes, typeBool optional);
+typeType* StructType(typeStructTypeMemberDict* structTypes, enTypeModifier modifier);
 
 #endif

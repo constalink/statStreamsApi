@@ -30,7 +30,7 @@
 // Included enums
 //-------------------------------------------------------------------------------------
 #include "enType.h"
-#include "enValueType.h"
+#include "enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
 // Struct definition
@@ -70,7 +70,7 @@ typedef struct typeType {
 	enType type;
 
 	// Optional modifier setting
-	enValueType valueType;
+	enTypeModifier modifier;
 
 } typeType;
 

@@ -7,7 +7,7 @@
  *
  * @param choices  A pointer to a list of possible choices
  * @param filePath An optional pointer to a filePath where the enum is defined
- * @param optional Whether or not the type is optional or can hold empty values
+ * @param modifier The type modifier - none, optional, or forced
  * @return         A pointer to the new enum typeType value
  *
  * @license  	MIT
@@ -27,7 +27,6 @@
 //-------------------------------------------------------------------------------------
 // Included types
 //-------------------------------------------------------------------------------------
-#include "typeBool.h"
 #include "typeData.h"
 #include "typeDataList.h"
 #include "typeType.h"
@@ -35,10 +34,11 @@
 //-------------------------------------------------------------------------------------
 // Included enums
 //-------------------------------------------------------------------------------------
+#include "enTypeModifier.h"
 
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeType* EnumType(typeDataList* choices, typeData* filePath, typeBool optional);
+typeType* EnumType(typeDataList* choices, typeData* filePath, enTypeModifier modifier);
 
 #endif

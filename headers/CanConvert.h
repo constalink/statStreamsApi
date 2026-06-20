@@ -69,18 +69,14 @@
  * {key1: int, key2: int} to: {key1: string, key2: string}
  * {key1: int, key2: int} to: {string}
  *
- * You can also convert union types if all sub types can convert
- * If the forced argument is true, then non-optional conversions
- * are allowed if the conversion would normally return an optional
- * value type. For example
- * fromType: string, toType: int normally returns false
- * but fromType: string, toType: int, forced: true returns true
- * string to: int - returns false
- * string to: int! - returns true
+ * For any optional conversion, you can also convert if the type
+ * is forced. For example, this conversion returns true:
+ * string to: int!
+ *
+ * You can also convert union types if all sub types can convert.
  *
  * @param fromType A pointer to the type to convert from
  * @param toType   A pointer to the type to convert to
- * @param forced   Whether or not the type conversion is forced
  * @return         True if the conversion is valid or false otherwise
  *
  * @license  	MIT
@@ -110,6 +106,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeBool CanConvert(typeType* fromType, typeType* toType, typeBool forced);
+typeBool CanConvert(typeType* fromType, typeType* toType);
 
 #endif

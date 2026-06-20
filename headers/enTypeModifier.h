@@ -1,26 +1,31 @@
 /**
- * enValueType
- * Value types. Whether or not a value is required, optional, or unknown
+ * enTypeModifier
+ * All possible type hint modifiers
  *
  * @license  	MIT
  * @author   	Ray Perea <ray@consta.link>
- * @created  	9/8/2022
+ * @created  	6/5/2026
  * @copyright	Constalink, all rights reserved
  * @visibility	Public
  */
 
-#ifndef enValueType_DEF
-#define enValueType_DEF
+#ifndef enTypeModifier_DEF
+#define enTypeModifier_DEF
 
 //-------------------------------------------------------------------------------------
 // Enum definition
 //-------------------------------------------------------------------------------------
-typedef enum enValueType {
+typedef enum enTypeModifier {
 
-	enValueTypeUnknown,
-	enValueTypeOptional,
-	enValueTypeRequired
+	// No modifier
+	enTypeModifierNone,
 
-} enValueType;
+	// The type hint is optional: ?
+	enTypeModifierOptional,
+
+	// The type hint is forced: !
+	enTypeModifierForced
+
+} enTypeModifier;
 
 #endif

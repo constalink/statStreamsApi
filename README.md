@@ -359,7 +359,7 @@ Creating a stream handler plugin for the Stat programming language is fairly sim
 
 ## Memory Management
 
-You must *keep track* of all the memory that your functions allocate and you must free any value that you don't return or keep track of it so that you can free it at some point. Instead of an ownership memory management model, Stat uses a stack based memory manager model where all memory is tracked using memory manager structs. Every time a new value is allocated, it is automatically tracked on the most recent memory tracker. There are several functions that you can use to help you manage memory correctly. Here is a list of those function and what they do:
+You must *keep track* of all the memory that your functions allocate and you must free any value that you don't return or keep track of it so that you can free it at some point. Instead of an ownership memory management model, Stat uses a stack based memory manager model where all memory is tracked using memory manager structs. Every time a new value is allocated, it is automatically tracked on the most recent memory tracker. There are several functions that you can use to help you manage memory correctly. Here is a list of those functions and what they do:
 
 ### Memory Management Functions
 
@@ -415,7 +415,7 @@ You must *keep track* of all the memory that your functions allocate and you mus
   }
   ```
 
-- [The `ElevateValue` Function](headers/ElevateValue.h) - You **must** call this function to *elevate* a value to the upper memory stack if you are going to return it and if you have already called the `TrackMem()` function. If you don't call this function with a value that you plan to return, and you call `FreeMem()` then the value will be freed which will most likely lead to segmentation faults
+- [The `ElevateValue` Function](headers/ElevateValue.h) - If you have already called the `TrackMem()` function you **must** call the `ElevateValue()` function to *elevate* a value to the upper memory stack if you are going to return it. If you don't call this function with a value that you plan to return, and you call `FreeMem()` then the value will be freed which will most likely lead to segmentation faults
 
   ```c
   // ElevateValue() Example:
@@ -512,8 +512,8 @@ You must *keep track* of all the memory that your functions allocate and you mus
 	// Let's use the ElevateMem function to do that
 	ElevateMem(important, otherValue->memStack);
 
-	// Now, we can use the ReturnVoid macro which
-	// will free the ignored value but not important
+	// Now, we can use the ReturnVoid macro which will free
+	// the ignored value but not the important value
 	ReturnVoid;
   }
   ```
@@ -553,7 +553,7 @@ You must *keep track* of all the memory that your functions allocate and you mus
 
 - [The `FreeValueTree` Function](headers/FreeValueTree.h) - This function expects a `typeValue*` based pointer. What it does is free the value passed in as well as all `typeValue*` based children as long as they have no other references to them.
 
-  > **IMPORTANT** This function should only be used if you know the implications. Care should be used with this function because you may accidentally free a value that you need later. You should use the `TrackMem()` and `FreeMem()` functions instead if possible. These functions handle freeing values automatically
+  > **IMPORTANT** This function should only be used if you know the implications. Care should be used with this function because you may accidentally free a value that you need later. You should use the `TrackMem()` and `FreeMem()` functions instead if possible. These functions handle freeing values automatically and correctly
 
 - [The `Global` Function](headers/Global.h) - This function expects a `typeValue*` based pointer. What it does is elevate the value to the highest memory stack which is called the *Global Memory Stack*. Anything tracked on the Global Memory Stack never gets freed until the program exits.
 
@@ -670,3 +670,6 @@ You can and **should** write tests for your stream plugin. To do this, simply cr
 ## Visual Studio Code Templates
 
 This repository includes some Visual Studio Code templates that provide the framework for plugins and for test files. Have a look in the `.vscode/templates.code-snippets` file. You can simply copy this file into your own project in the `.vscode` folder and the snippets should be available.
+
+In order to use the code snippets, you'll want to setup a symlink to the `headers` folder and the `testing` folder
+within the main folder of your project so that the `#include` statements within the template files work properly
