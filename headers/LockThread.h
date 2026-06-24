@@ -47,6 +47,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-typeBool LockThread(typeThread* thread, typeBool writeLock, typeBool try);
+typeBool LockThread(typeThread* thread, typeBool writeLock, typeBool tryLock);
 
 #endif

@@ -7,7 +7,7 @@
  *
  * This is a shortcut function for creating an infinity integer which is a commonly used value
  * It is equivalent to the following:
- * IntegerValue(enNumberTypePositiveInfinity, Integer(0));
+ * IntegerValue(enNumberTypePositiveInfinity, Integer(0, 0));
  *
  * Instead of that, simply call: IntInfinity();
  *

@@ -4,7 +4,7 @@
  *
  * This is a shortcut function for creating a negative one fraction which is a commonly used value
  * It is equivalent to the following:
- * FractionValue(enNumberTypeNegative, Fraction(Integer(1, 1, (uint64_t) 1), Integer(0), Integer(1, 1, (uint64_t) 1)));
+ * FractionValue(enNumberTypeNegative, Fraction(Integer(1, 1, UINT64_C(1)), Integer(0, 0), Integer(1, 1, UINT64_C(1))));
  *
  * Instead of that, simply call: FractNegOne();
  *

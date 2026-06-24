@@ -5,7 +5,7 @@
  * This function allocates a new typeIntegerValue value using the passed in integer
  * and tracks it on the current memory stack. This function is equivalent to the following:
  *
- * IntegerValue(integer < 0, Integer(1, 1, abs(integer)));
+ * IntegerValue(integer < 0, Integer(1, 1, (uint64_t) abs(integer)));
  *
  * @param integer The signed integer to create the integer value from
  * @return        A pointer to the new typeIntegerValue value

@@ -4,7 +4,7 @@
  *
  * This is a shortcut function for creating a zero integer which is a commonly used value
  * It is equivalent to the following:
- * IntegerValue(enNumberTypePositive, Integer(0));
+ * IntegerValue(enNumberTypePositive, Integer(0, 0));
  *
  * Instead of that, simply call: IntZero();
  *

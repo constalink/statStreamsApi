@@ -60,6 +60,7 @@
 // - Perform any one time initializations that the stream requires in order to function properly
 static void InitStream(typeStreamDef* streamDef) {
 	// No initialization is necessary for this stream
+	(void) streamDef;
 }
 
 // This function is called when the Stat executable exits.
@@ -68,6 +69,7 @@ static void InitStream(typeStreamDef* streamDef) {
 // - Perform any operations required to clean up after the stream.
 static void CleanupStream(typeStreamDef* streamDef) {
 	// No cleanup is necessary for this stream
+	(void) streamDef;
 }
 
 // This function is called every time an open stream expression is called for this stream

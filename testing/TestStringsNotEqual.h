@@ -35,6 +35,6 @@
 //-------------------------------------------------------------------------------------
 // Header definition
 //-------------------------------------------------------------------------------------
-int16_t _TestStringsNotEqual(int16_t line, char* string1, char* string2);
+int16_t _TestStringsNotEqual(int16_t line, uint8_t* string1, char* string2);
 
 #endif

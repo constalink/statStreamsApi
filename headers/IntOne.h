@@ -4,7 +4,7 @@
  *
  * This is a shortcut function for creating a one integer which is a commonly used value
  * It is equivalent to the following:
- * IntegerValue(enNumberTypePositive, Integer(1, 1, (uint64_t) 1));
+ * IntegerValue(enNumberTypePositive, Integer(1, 1, UINT64_C(1)));
  *
  * Instead of that, simply call: IntOne();
  *

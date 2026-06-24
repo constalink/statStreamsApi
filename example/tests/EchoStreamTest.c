@@ -148,7 +148,7 @@ int32_t main() {
 	typeValueRef* integer = IntRef(
 		IntegerValue(
 			enNumberTypePositive,
-			Integer(2, 2, (uint64_t) 100, (uint64_t) 201)
+			Integer(2, 2, UINT64_C(100), UINT64_C(201))
 		)
 	);
 	TestMemLeak(integer);

@@ -12,21 +12,25 @@
  * Here is an example of how to call this function
  *
  * // Creates a 128 bit integer value with 0x0897da6b2001d0d6 and 0xe633337364f1ab7e as words
- * typeInteger* intVal = Integer(2, 2, (uint64_t) 0x0897da6b2001d0d6, (uint64_t) 0xe633337364f1ab7e);
+ * typeInteger* intVal = Integer(2, 2, UINT64_C(0x0897da6b2001d0d6), UINT64_C(0xe633337364f1ab7e));
  *
  * You can create a partially initialized integer value by passing in less
  * arguments than the length
  *
  * // Creates a 256 bit integer value with 0x0897da6b2001d0d6 and 0xe633337364f1ab7e as the first 2 words
- * typeInteger* intVal = Integer(4, 2, (uint64_t) 0x0897da6b2001d0d6, (uint64_t) 0xe633337364f1ab7e);
+ * typeInteger* intVal = Integer(4, 2, UINT64_C(0x0897da6b2001d0d6), UINT64_C(0xe633337364f1ab7e));
  *
  * IMPORTANT: This function expects unsigned 64 bit words for the integer value.
- * If passing in literal numbers, make sure to cast them to uint64_t. In other words, don't do this:
+ * If passing in literal numbers, make sure to use 64 bit literals or cast them to uint64_t. In other words, don't do this:
  * Integer(3, 3, 1, 2, 3);
- * Instead, do this:
+ * Instead, do this (recommended):
+ * Integer(3, 3, UINT64_C(1), UINT64_C(2), UINT64_C(3));
+ * Or do this (use a cast):
  * Integer(3, 3, (uint64_t) 1, (uint64_t) 2, (uint64_t) 3);
  * This is required because some compilers will cast integer literals to int32_t or to int64_t
  * which will end up giving you the wrong value. GCC on Mac OS is notorious for this.
+ * Using the UINT64_C macro will add the proper suffix to the end of the integer literal which
+ * is the recommended method.
  *
  * @param length The final length of the typeInteger value in 64-bit words. 1 is 64 bit, 2 is 128 bit, etc.
  * @param args   The number of 64-bit arguments that are passed into the function

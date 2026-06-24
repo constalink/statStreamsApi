@@ -159,32 +159,32 @@ binRef = BinaryRef(bin);
 **Creating integer values**
 ```c
 // To create an integer value that contains 3225
-typeValueRef* intVal = IntRef(IntegerValue(enNumberTypePositive, Integer(1, 1, (uint64_t) 3225)));
+typeValueRef* intVal = IntRef(IntegerValue(enNumberTypePositive, Integer(1, 1, UINT64_C(3225))));
 
 // To create -3225
-intVal = IntRef(IntegerValue(enNumberTypeNegative, Integer(1, 1, (uint64_t) 3225)));
+intVal = IntRef(IntegerValue(enNumberTypeNegative, Integer(1, 1, UINT64_C(3225))));
 
 // To create a really big integer... 1024 bit
 typeValueRef* bigInt = IntRef(
 	IntegerValue(
 		enNumberTypePositive,
 		Integer(16, 16,
-			(uint64_t) 0x921cb80fc2c871b4,
-			(uint64_t) 0xe633337364f1ab7e,
-			(uint64_t) 0x0897da6b2001d0d6,
-			(uint64_t) 0x725bb329dc696e2c,
-			(uint64_t) 0xebf9c11dff0f00d9,
-			(uint64_t) 0x1bcea56a30ffae16,
-			(uint64_t) 0xc217dba37eadc98c,
-			(uint64_t) 0xd72887ffb56cf870,
-			(uint64_t) 0x82565e61c19411d8,
-			(uint64_t) 0xbcd112894abdf589,
-			(uint64_t) 0x209439999191293a,
-			(uint64_t) 0xec45a78cdef12098
-			(uint64_t) 0xDAC4BDF9222D8A29,
-			(uint64_t) 0x6A98BCF1492F5990,
-			(uint64_t) 0xFAF6196D3344B8C5,
-			(uint64_t) 0x04F7005A643CDE39
+			UINT64_C(0x921cb80fc2c871b4),
+			UINT64_C(0xe633337364f1ab7e),
+			UINT64_C(0x0897da6b2001d0d6),
+			UINT64_C(0x725bb329dc696e2c),
+			UINT64_C(0xebf9c11dff0f00d9),
+			UINT64_C(0x1bcea56a30ffae16),
+			UINT64_C(0xc217dba37eadc98c),
+			UINT64_C(0xd72887ffb56cf870),
+			UINT64_C(0x82565e61c19411d8),
+			UINT64_C(0xbcd112894abdf589),
+			UINT64_C(0x209439999191293a),
+			UINT64_C(0xec45a78cdef12098)
+			UINT64_C(0xDAC4BDF9222D8A29),
+			UINT64_C(0x6A98BCF1492F5990),
+			UINT64_C(0xFAF6196D3344B8C5),
+			UINT64_C(0x04F7005A643CDE39)
 		)
 	)
 )
@@ -198,11 +198,11 @@ typeValueRef* fractVal = FractionRef(
 		enNumberTypePositive,
 		Fraction(
 			// Whole number
-			Integer(1, 1, (uint64_t) 7),
+			Integer(1, 1, UINT64_C(7)),
 			// Numerator
-			Integer(1, 1, (uint64_t) 1),
+			Integer(1, 1, UINT64_C(1)),
 			// Denominator
-			Integer(1, 1, (uint64_t) 3)
+			Integer(1, 1, UINT64_C(3))
 		)
 	)
 );
@@ -243,9 +243,9 @@ typeValueRef* regExpVal = RegExpRef(
 typeValueRef* rangeVal = RangeRef(
 	RangeValue(
 		// The start of the range
-		IntegerValue(enNumberTypePositive, Integer(1, 1, (uint64_t) 10)),
+		IntegerValue(enNumberTypePositive, Integer(1, 1, UINT64_C(10))),
 		// The end of the range
-		IntegerValue(enNumberTypePositive, Integer(1, 1, (uint64_t) 200)),
+		IntegerValue(enNumberTypePositive, Integer(1, 1, UINT64_C(200))),
 		// Whether or not include the end value
 		true
 	)

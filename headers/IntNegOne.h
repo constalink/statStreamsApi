@@ -4,7 +4,7 @@
  *
  * This is a shortcut function for creating a negative one integer which is a commonly used value
  * It is equivalent to the following:
- * IntegerValue(enNumberTypeNegative, Integer(1, 1, (uint64_t) 1));
+ * IntegerValue(enNumberTypeNegative, Integer(1, 1, UINT64_C(1)));
  *
  * Instead of that, simply call: IntNegOne();
  *

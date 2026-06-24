@@ -8,7 +8,7 @@
  *
  * This is a shortcut function for creating an infinity fraction which is a commonly used value
  * It is equivalent to the following:
- * FractionValue(enNumberTypePositiveInfinity, Fraction(Integer(0), Integer(0), Integer(1, 1, (uint64_t) 1)));
+ * FractionValue(enNumberTypePositiveInfinity, Fraction(Integer(0, 0), Integer(0, 0), Integer(1, 1, UINT64_C(1))));
  *
  * Instead of that, simply call: FractInfinity();
  *

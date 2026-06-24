@@ -7,7 +7,7 @@
  *
  * This is a shortcut function for creating a negative infinity integer which is a commonly used value
  * It is equivalent to the following:
- * IntegerValue(enNumberTypeNegativeInfinity, Integer(0));
+ * IntegerValue(enNumberTypeNegativeInfinity, Integer(0, 0));
  *
  * Instead of that, simply call: IntNegInfinity();
  *
