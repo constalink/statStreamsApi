@@ -15,6 +15,8 @@
 //-------------------------------------------------------------------------------------
 // Included libraries
 //-------------------------------------------------------------------------------------
+// For int8_t int16_t int32_t int64_t intmax_t uint8_t uint16_t uint32_t uint64_t uintmax_t
+#include <stdint.h>
 
 //-------------------------------------------------------------------------------------
 // Included types
@@ -68,6 +70,15 @@ typedef struct typeStreamValue {
 
 	// Whether or not the stream is open
 	typeBool opened;
+
+	// The number of read operations that have been performed on the stream
+	uint64_t reads;
+
+	// The number of write operations that have been performed on the stream
+	uint64_t writes;
+
+	// The count of data sent to the stream. The units are stream specific
+	uint64_t sent;
 
 } typeStreamValue;
 
