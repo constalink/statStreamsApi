@@ -2,7 +2,7 @@
  * CopyList
  * Copies a list and returns a pointer to the copy
  *
- * IMPORTANT: This function doe not do a deep copy. What it does is create a new
+ * IMPORTANT: This function does not do a deep copy. What it does is create a new
  * typeList based value and link the existing values from the original
  * list into the new list. This means that the original list and the new
  * list share the same underlying pointers to the values they contain
