@@ -351,9 +351,9 @@ Creating a stream handler plugin for the Stat programming language is fairly sim
 
   - The `OpenCall` function - This function is called every time an `open streamName` expression is called. It should perform any operations required to open the stream and set the `stream->opened` value to `true` if the operation succeeded.
 
-  - The `CloseCall` function - This function is called every time a `close handle` expression is called. It should perform any operations required to close the stream and set the `stream->closed` value to `false` if the operation succeeded.
+  - The `CloseCall` function - This function is called every time a `close handle` expression is called. It should perform any operations required to close the stream and set the `stream->opened` value to `false` if the operation succeeded.
 
-  - The `SendCall` function - This function is called every time there is an attempt to send a value / write to the stream. It should perform a write operation, whatever that entails, and return the number of bytes written or sent
+  - The `SendCall` function - This function is called every time there is an attempt to send a value / write to the stream. It should perform a write operation, whatever that entails, and return the number of units written or sent. What a unit is is up to you. It could be bytes, or characters, or whole values, or something else that might be meaningful for tracking how much data has been processed by the stream
 
   - The `FetchCall` function - This function is called whenever there is an attempt to read from the stream. It should perform a read operation, whatever that entails, amd return the resultant value
 

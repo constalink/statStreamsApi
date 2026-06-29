@@ -78,18 +78,11 @@ static void CleanupStream(typeStreamDef* streamDef) {
 // - Perform any operations required in order to open the stream
 // - Set the stream->opened value to true if the open operation succeeded or false otherwise
 // - Set the stream->error message if the open operation fails for any reason
-// - Set the stream->error to NULL if the open operation succeeds
 //
 // It must:
 // - Make sure that the stream->opened value is set correctly before it returns
-// - Make sure that the stream->error is set correctly before it returns
+// - Make sure that the stream->error is set in case of an error before it returns
 static void OpenCall(typeStreamValue* stream) {
-
-	// Here, we are setting the stream->error to NULL
-	// NOTE: Always call the SetStreamError function rather than setting the error directly
-	// to make sure that reference counts and memory management are handled properly
-	SetStreamError(stream, NULL);
-
 	// Here, we are setting the stream to open. We can set this value directly
 	stream->opened = true;
 }
@@ -99,19 +92,13 @@ static void OpenCall(typeStreamValue* stream) {
 // It should:
 // - Perform any operations required in order to close the stream
 // - Set the stream->opened value to false if the close operation succeeded
-// - Set the stream error->message if the close operation fails for any reason
-// - Set the stream error->to NULL if the close operation succeeds
 //
 // It must:
 // - Make sure that the stream->opened value is set correctly before it returns
-// - Make sure that the stream->error is set correctly before it returns
+//
+// It MUST NOT:
+// - Set an error or set a stream resource as this may cause a segmentation fault
 static void CloseCall(typeStreamValue* stream) {
-
-	// Here, we are setting the stream->error to NULL
-	// NOTE: Always call the SetStreamError function rather than setting the error directly
-	// to make sure that reference counts and memory management are handled properly
-	SetStreamError(stream, NULL);
-
 	// Here, we are setting the stream to closed. We can set this value directly
 	stream->opened = false;
 }
